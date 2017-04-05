@@ -9,9 +9,6 @@ public class TitleManager : MonoBehaviour
 	void Start ()
 	{
 		PlayerPrefs.DeleteAll();
-		var PageManager = new PageManager();
-		PageManager.Initalize();
-		//StartCoroutine(WaitForLoadMasterData());
 	}
 
 	//マスターとモデルのロード

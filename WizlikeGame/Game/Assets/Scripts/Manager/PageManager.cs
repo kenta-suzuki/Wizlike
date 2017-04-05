@@ -5,8 +5,8 @@ using System.Linq;
 
 public class PageManager : MonoBehaviour
 {
-	static PageManagerBase _instance;
-	public static PageManagerBase Insatance
+	static PageManager _instance;
+	public static PageManager Insatance
 	{
 		get
 		{
@@ -27,7 +27,7 @@ public class PageManager : MonoBehaviour
 
 	public void Initialize()
 	{
-		_instance = GetComponent<PageManagerBase>();
+		_instance = GetComponent<PageManager>();
 	}
 
 	public void ShowPage(string name)
