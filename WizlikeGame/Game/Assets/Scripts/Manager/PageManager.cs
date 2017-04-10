@@ -14,7 +14,6 @@ public class PageManager : MonoBehaviour
 		}
 	}
 
-	[SerializeField]
 	List<IPageController> Controllers;
 	[SerializeField]
 	string DefaultPageName;
@@ -28,12 +27,20 @@ public class PageManager : MonoBehaviour
 	public void Initialize()
 	{
 		_instance = GetComponent<PageManager>();
+		LoadPageController();
+	}
+
+	void LoadPageController()
+	{
+		Controllers = GetComponentsInChildren<IPageController>().ToList();
+		Controllers.ForEach(c => c.Initialize());
 	}
 
 	public void ShowPage(string name)
 	{
 		Controllers.ForEach(c => c.Hide());
 		var controller = Controllers.FirstOrDefault((c) => c.Name == name);
+
 		if (controller != null)
 		{
 			controller.Show();

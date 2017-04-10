@@ -25,11 +25,20 @@ public class MainMenuView : MonoBehaviour
 	public event Action LeftButtonClicked;
 	public event Action RightButtonClicked;
 
-	public void Show()
+	public void Initialize()
 	{
 		DepartureButton.Tapped = DepartureButtonClicked;
 		SaveButton.Tapped = SaveButtonClicked;
 		LoadButton.Tapped = LoadButtonClicked;
+	}
+
+	void SetBG()
+	{
+		BGSprite = Resources.Load<Sprite>("Images/BG/Page/base");
+	}
+
+	public void Show()
+	{
 		TopMenuPanel.SetButton(LeftButtonClicked, RightButtonClicked, "紹介所", "宿屋");
 		gameObject.SetActive(true);
 	}

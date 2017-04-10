@@ -6,43 +6,27 @@ public class MainMenuController : MonoBehaviour, IPageController
 {
 	[SerializeField]
 	MainMenuView View;
-	[SerializeField]
-	PageManager Manager;
 
 	public string Name { get { return "MainMenu";} }
 
 	public void Initialize()
 	{
-		Debug.Log("initialized");
-		var bgSprite = Resources.Load<Sprite>("Images/BG/Page/base");
 		View.DepartureButtonClicked += () => OnDepartureButtonClick();
 		View.SaveButtonClicked += () => OnSaveButtonClick();
 		View.LoadButtonClicked += () => OnLoadButtonClick();
 		View.LeftButtonClicked += () => OnLeftButtonClick();
 		View.RightButtonClicked += () => OnRightButtonClick();
-
-		View.BGSprite = bgSprite;
+		View.Initialize();
 	}
 	
 	public void Show()
 	{
-		Debug.Log("show");
 		View.Show();
 	}
 
 	public void Hide()
 	{
 		View.Hide();
-	}
-
-	void OnInnButtonClick()
-	{
-		Debug.Log("宿屋");
-	}
-
-	void OnBarButtonClick()
-	{
-		Debug.Log("酒場");
 	}
 
 	void OnDepartureButtonClick()
@@ -52,21 +36,21 @@ public class MainMenuController : MonoBehaviour, IPageController
 
 	void OnSaveButtonClick()
 	{
-		Debug.Log("セーブ画面");
+		ConfirmDialog.CreateDialog(View.transform, "セーブ", "セーブしますか？", () => GameModel.Instance.Models.Save());
 	}
 
 	void OnLoadButtonClick()
 	{
-		Debug.Log("ロード画面");
+		ConfirmDialog.CreateDialog(View.transform, "ロード", "ロードしますか？", () => GameModel.Instance.Models.Load());
 	}
 
 	void OnLeftButtonClick()
 	{
-		Debug.Log("紹介所");
+		PageManager.Insatance.ShowPage("IntroductionMenu");
 	}
 
 	void OnRightButtonClick()
 	{
-		Manager.ShowPage("IinMenu");
+		PageManager.Insatance.ShowPage("IinMenu");
 	}
 }

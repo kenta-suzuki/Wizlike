@@ -18,10 +18,19 @@ public class InnMenuView : MonoBehaviour
 	public event Action LeftButtonClicked;
 	public event Action RightButtonClicked;
 
-	public void Show()
+	public void Initialize()
 	{
 		StayButton.Tapped = StayButtonClicked;
-		TopMenuPanel.SetButton(LeftButtonClicked, RightButtonClicked, "拠点", "商店");
+	}
+
+	void SetBG()
+	{
+		BGSprite = Resources.Load<Sprite>("Images/BG/Page/base");
+	}
+
+	public void Show()
+	{
+		TopMenuPanel.SetButton(LeftButtonClicked, RightButtonClicked, "拠点", "酒場");
 		gameObject.SetActive(true);
 	}
 

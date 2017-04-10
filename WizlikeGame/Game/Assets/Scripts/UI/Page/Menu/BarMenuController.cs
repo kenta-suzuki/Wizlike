@@ -2,15 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BarMenuController : MonoBehaviour {
+public class BarMenuController : MonoBehaviour, IPageController
+{
+	[SerializeField]
+	BarMenuView View;
 
-	// Use this for initialization
-	void Start () {
-		
+	public string Name { get { return "BarMenu"; } }
+
+	public void Initialize()
+	{
+		View.LeftButtonClicked += () => OnLeftButtonClick();
+		View.RightButtonClicked += () => OnRightButtonClick();
+		View.AddMemberButtonClicked += () => OnAddMemberButtonClick();
+		View.RejectMemberButtonClicked += () => OnRejectMemberButtonClick();
+		View.Initialize();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void Show()
+	{
+		View.Show();
+	}
+
+	public void Hide()
+	{
+		View.Hide();
+	}
+
+	void OnAddMemberButtonClick()
+	{
+	}
+
+	void OnRejectMemberButtonClick()
+	{
+	}
+
+	void OnLeftButtonClick()
+	{
+		PageManager.Insatance.ShowPage("IinMenu");
+	}
+
+	void OnRightButtonClick()
+	{
+		PageManager.Insatance.ShowPage("ShopMenu");
 	}
 }

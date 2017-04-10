@@ -4,27 +4,31 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 
-public class BarMenuView : MonoBehaviour 
+public class IntroductionMenuView : MonoBehaviour
 {
 	[SerializeField]
 	TopMenuPanel TopMenuPanel;
 	[SerializeField]
-	CommonButton AddMemberButton;
+	CommonButton RegistButton;
 	[SerializeField]
-	CommonButton RejectMemberButton;
+	CommonButton RemoveButton;
+	[SerializeField]
+	CommonButton RenameButton;
 	[SerializeField]
 	Image BG;
 	public Sprite BGSprite { set { BG.sprite = value; } }
 
-	public event Action AddMemberButtonClicked;
-	public event Action RejectMemberButtonClicked;
+	public event Action RegistButtonClicked;
+	public event Action RemoveButtonClicked;
+	public event Action RenameButtonClicked;
 	public event Action LeftButtonClicked;
 	public event Action RightButtonClicked;
 
 	public void Initialize()
 	{
-		AddMemberButton.Tapped = AddMemberButtonClicked;
-		RejectMemberButton.Tapped = RejectMemberButtonClicked;
+		RegistButton.Tapped = RegistButtonClicked;
+		RemoveButton.Tapped = RemoveButtonClicked;
+		RenameButton.Tapped = RenameButtonClicked;
 	}
 
 	void SetBG()
@@ -34,7 +38,7 @@ public class BarMenuView : MonoBehaviour
 
 	public void Show()
 	{
-		TopMenuPanel.SetButton(LeftButtonClicked, RightButtonClicked, "宿屋", "商店");
+		TopMenuPanel.SetButton(LeftButtonClicked, RightButtonClicked, "商店", "拠点");
 		gameObject.SetActive(true);
 	}
 

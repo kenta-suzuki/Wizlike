@@ -2,15 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IntroductionMenuController : MonoBehaviour {
+public class IntroductionMenuController : MonoBehaviour, IPageController 
+{
+	[SerializeField]
+	IntroductionMenuView View;
 
-	// Use this for initialization
-	void Start () {
-		
+	public string Name { get { return "IntroductionMenu"; } }
+
+	public void Initialize()
+	{
+		View.LeftButtonClicked += () => OnLeftButtonClick();
+		View.RightButtonClicked += () => OnRightButtonClick();
+		View.RegistButtonClicked += () => OnRegistButtonClick();
+		View.RemoveButtonClicked += () => OnRemoveButtonClick();
+		View.RenameButtonClicked += () => OnRenameButtonClick();
+		View.Initialize();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	public void Show()
+	{
+		View.Show();
+	}
+
+	public void Hide()
+	{
+		View.Hide();
+	}
+
+	void OnRegistButtonClick()
+	{
+	}
+
+	void OnRemoveButtonClick()
+	{
+	}
+
+	void OnRenameButtonClick()
+	{
+	}
+
+	void OnLeftButtonClick()
+	{
+		PageManager.Insatance.ShowPage("ShopMenu");
+	}
+
+	void OnRightButtonClick()
+	{
+		PageManager.Insatance.ShowPage("MainMenu");
 	}
 }

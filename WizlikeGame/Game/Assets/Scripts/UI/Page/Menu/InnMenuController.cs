@@ -6,22 +6,16 @@ public class InnMenuController : MonoBehaviour,IPageController
 {
 	[SerializeField]
 	InnMenuView View;
-	[SerializeField]
-	PageManager Manager;
-	[SerializeField]
-	MainMenuController MainMenuController;
 
 	public string Name { get { return "IinMenu";} }
 
 
 	public void Initialize()
 	{
-		var bgSprite = Resources.Load<Sprite>("Images/BG/Page/base");
 		View.StayButtonClicked += () => OnStayButtonClick();
 		View.LeftButtonClicked += () => OnLeftButtonClick();
 		View.RightButtonClicked += () => OnRightButtonClick();
-
-		View.BGSprite = bgSprite;
+		View.Initialize();
 	}
 
 	public void Show()
@@ -34,17 +28,24 @@ public class InnMenuController : MonoBehaviour,IPageController
 		View.Hide();
 	}
 
+	int GetStayPrice()
+	{
+		return 1000;
+	}
+
 	void OnStayButtonClick()
 	{
-		ConfirmDialog.CreateDialog(View.transform.parent, "泊まりますか?", "1000ゴールドになります", OnOkButtonClick);
+		ConfirmDialog.CreateDialog(View.transform.parent, "泊まりますか?", GetStayPrice().ToString() + "ゴールドになります", OnOkButtonClick);
 	}
 
 	void OnLeftButtonClick()
 	{
+		PageManager.Insatance.ShowPage("MainMenu");
 	}
 
 	void OnRightButtonClick()
 	{
+		PageManager.Insatance.ShowPage("BarMenu");
 	}
 
 	void OnOkButtonClick()
