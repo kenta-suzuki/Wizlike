@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class TitleManager : MonoBehaviour 
 {
+	[SerializeField]
+	TitleController controller;
 
-	// Use this for initialization
 	void Start ()
 	{
 		PlayerPrefs.DeleteAll();
+		StartCoroutine(WaitForLoadMasterData());
+		controller.Initialize();
 	}
 
-	//マスターとモデルのロード
 	IEnumerator WaitForLoadMasterData()
 	{
 		var gamemodel = new GameModel();
@@ -20,7 +22,6 @@ public class TitleManager : MonoBehaviour
 		{
 			yield return null;
 		}
+		controller.Show();
 	}
-
-
 }
