@@ -6,7 +6,7 @@ using System;
 
 public class ConfirmDialog : MonoBehaviour
 {
-	const string path = "";
+	const string path = "Prefabs/Dialog/DialogPanel";
 
 	[SerializeField]
 	Text Title;
@@ -22,7 +22,7 @@ public class ConfirmDialog : MonoBehaviour
 	public static void CreateDialog(Transform parent, string title, string message, Action okButtonClicked, Action ngButtonClicked = null)
 	{
 		var obj = (GameObject)Instantiate(Resources.Load(path), Vector3.zero, Quaternion.identity);
-		obj.transform.SetParent(parent);
+		obj.transform.SetParent(parent, false);
 		var instance = obj.GetComponent<ConfirmDialog>();
 		instance.SetParameters(title, message, okButtonClicked, ngButtonClicked);
 	}
@@ -42,5 +42,10 @@ public class ConfirmDialog : MonoBehaviour
 	void Close()
 	{
 		DialogAnimator.SetBool("IsClose", true);
+	}
+
+	public void Destroy()
+	{
+		Destroy(gameObject);
 	}
 }
