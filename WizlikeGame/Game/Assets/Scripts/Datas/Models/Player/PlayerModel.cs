@@ -15,14 +15,15 @@ namespace Data.Model
 		{
 			if (HasPlayerData)
 			{
-				LoadPlayerData();
-				Save();
+				Load();
 			}
-			CreateNewData();
-			Save();
+			else
+			{
+				CreateNewData();
+			}
 		}
 
-		void LoadPlayerData()
+		public void Load()
 		{
 			Player = Player.Create(PlayerPrefs.GetString(Key));
 		}

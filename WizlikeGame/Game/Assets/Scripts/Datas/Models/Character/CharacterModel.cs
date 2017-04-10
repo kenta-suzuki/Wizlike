@@ -17,12 +17,18 @@ namespace Data.Model
 			Characters = new List<Character>();
 			if (HasCharacterData)
 			{
-				LoadData();
+				Load();
 			}
 		}
 
-		public void LoadData()
+		void Clear()
 		{
+			Characters.Clear();
+		}
+
+		public void Load()
+		{
+			Clear();
 			JSONObjectExtension.ToStringList(PlayerPrefs.GetString(key)).ForEach(c => Add(Character.Create(c)));
 		}
 

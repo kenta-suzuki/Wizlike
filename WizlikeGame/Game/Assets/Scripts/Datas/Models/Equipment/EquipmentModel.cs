@@ -17,12 +17,18 @@ namespace Data.Model
 			Equipments = new List<Equipment>();
 			if (HasEquipmentData)
 			{
-				LoadData();
+				Load();
 			}
 		}
 
-		public void LoadData()
+		void Clear()
 		{
+			Equipments.Clear();
+		}
+
+		public void Load()
+		{
+			Clear();
 			JSONObjectExtension.ToStringList(PlayerPrefs.GetString(key)).ForEach(e => Add(Equipment.Create(e)));
 		}
 

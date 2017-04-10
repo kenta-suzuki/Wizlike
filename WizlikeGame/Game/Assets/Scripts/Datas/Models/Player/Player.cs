@@ -7,7 +7,6 @@ namespace Data.Model
 	public class Player
 	{
 		public int Money { get; private set; }
-		public List<Character> Party { get; private set;}
 
 		public Player(int moeny)
 		{

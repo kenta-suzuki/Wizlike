@@ -21,5 +21,19 @@ namespace Data.Model
 			Character = new CharacterModel();
 			Character.Initialize();
 		}
+
+		public void Save()
+		{
+			Player.Save();
+			Equipment.Save();
+			Character.Save();
+		}
+
+		public void Load()
+		{
+			Player.Load();
+			Equipment.Load();
+			Character.Load();
+		}
 	}
 }
