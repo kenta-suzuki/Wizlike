@@ -10,16 +10,19 @@ namespace Data.Master
 		public EquipmentMasterTable Equipment { get; private set; }
 		public EnemyMasterTable Enemy { get; private set; }
 		public SkillMasterTable Skill { get; private set;}
+		public ItemMasterTable Item { get; private set;}
 
 		public void Initialize()
 		{
 			Character = new CharacterMasterTable();
 			Equipment = new EquipmentMasterTable();
 			Enemy = new EnemyMasterTable();
+			Item = new ItemMasterTable();
 
 			Character.Load();
 			Equipment.Load();
 			Enemy.Load();
+			//Item.Load();
 			//Skill.Load();
 
 		}

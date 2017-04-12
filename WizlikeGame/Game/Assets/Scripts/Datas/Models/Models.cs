@@ -9,6 +9,7 @@ namespace Data.Model
 		public PlayerModel Player { get; private set;}
 		public EquipmentModel Equipment { get; private set;}
 		public CharacterModel Character { get; private set;}
+		public ItemModel Item { get; private set;}
 		public bool HasModel { get { return Player.HasPlayerData; } }
 
 
@@ -20,6 +21,8 @@ namespace Data.Model
 			Equipment.Initialize();
 			Character = new CharacterModel();
 			Character.Initialize();
+			Item = new ItemModel();
+			Item.Initialize();
 		}
 
 		public void Save()
@@ -27,6 +30,7 @@ namespace Data.Model
 			Player.Save();
 			Equipment.Save();
 			Character.Save();
+			Item.Save();
 		}
 
 		public void Load()
@@ -34,6 +38,7 @@ namespace Data.Model
 			Player.Load();
 			Equipment.Load();
 			Character.Load();
+			Item.Load();
 		}
 	}
 }
