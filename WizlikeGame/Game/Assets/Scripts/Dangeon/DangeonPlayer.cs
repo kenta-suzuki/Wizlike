@@ -25,7 +25,7 @@ public class DangeonPlayer : MonoBehaviour
 
 		if (itemMaster != null)
 		{
-			itemModel.Add(Item.Create(itemMaster));
+			itemModel.Add(Item.Create(itemMaster, false));
 		}
 
 		var equipmentMaster = GameModel.Instance.Masters.Equipment.Datas.FirstOrDefault(e => e.id == id);

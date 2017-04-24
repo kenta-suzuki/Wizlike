@@ -9,7 +9,7 @@ namespace Data.Model
 {
 	public class Character
 	{
-		public int code { get; private set;}
+		public int Code{ get; private set;}
 		public int Lv { get; private set;}
 		public string Name { get; private set; }
 		public Job Job { get; private set; }
@@ -25,7 +25,7 @@ namespace Data.Model
 
 		public Character(int c, int lv, string name, Job job, int strong, int intelligence, int mystery, int agile, int vital, int luck, List<Equipment> equipments, List<SkillMaster> skills)
 		{
-			code = c;
+			Code = c;
 			Lv = lv;
 			Name = name;
 			Job = job;
@@ -84,7 +84,7 @@ namespace Data.Model
 		{
 			var _equipments = GetList("equipment", obj, (arg) =>
 			{
-				return GameModel.Instance.Models.Equipment.Equipments.First(e => e.code == (int)obj.GetField("equipment" + arg).i);
+				return GameModel.Instance.Models.Equipment.Equipments.First(e => e.Code == (int)obj.GetField("equipment" + arg).i);
 			});
 
 			var _skills = GetList("skill", obj, (arg) =>
@@ -121,7 +121,7 @@ namespace Data.Model
 		public JSONObject ToJson()
 		{
 			var json = new JSONObject();
-			json.SetField("code", code);
+			json.SetField("code", Code);
 			json.SetField("lv", Lv);
 			json.SetField("name", Name);
 			json.SetField("job", Job.ToString());
@@ -131,7 +131,7 @@ namespace Data.Model
 			json.SetField("agile", Agile);
 			json.SetField("vital", Vital);
 			json.SetField("luck", Luck);
-			SetField("equipment", json, Equipments.Select(e => e.code).ToList());
+			SetField("equipment", json, Equipments.Select(e => e.Code).ToList());
 			SetField("skill", json, Skills.Select(s => s.id).ToList());
 
 			return json;

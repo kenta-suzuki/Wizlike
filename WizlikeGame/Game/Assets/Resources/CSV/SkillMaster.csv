@@ -1,0 +1,4 @@
+id,name,script,target,select_type,description,parameters
+1,攻撃,NormalAttack,One,Enemy,通常攻撃を行う,
+2,防御,NormalDeffense,None,None,防御を行う,
+3,逃げる,RunAway,None,None,先頭から逃げる,

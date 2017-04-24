@@ -61,11 +61,14 @@ public class MasterBase
 		if (propertyInfo.PropertyType == typeof(int)) propertyInfo.SetValue(this, int.Parse(value), null);
 		else if (propertyInfo.PropertyType == typeof(string)) propertyInfo.SetValue(this, value, null);
 		else if (propertyInfo.PropertyType == typeof(double)) propertyInfo.SetValue(this, double.Parse(value), null);
+		else if (propertyInfo.PropertyType == typeof(bool)) propertyInfo.SetValue(this, bool.Parse(value), null);
 		else if (propertyInfo.PropertyType == typeof(Attribute)) propertyInfo.SetValue(this, AttributeExtension.ToEnum(value), null);
+		else if (propertyInfo.PropertyType == typeof(Target)) propertyInfo.SetValue(this, TargetExtension.ToEnum(value), null);
 		else if (propertyInfo.PropertyType == typeof(Tribe)) propertyInfo.SetValue(this, TribeExtension.ToEnum(value), null);
+		else if (propertyInfo.PropertyType == typeof(EnemyTribe)) propertyInfo.SetValue(this, EnemyTribeExtension.ToEnum(value), null);
 		else if (propertyInfo.PropertyType == typeof(Job)) propertyInfo.SetValue(this, JobExtension.ToEnum(value), null);
 		else if (propertyInfo.PropertyType == typeof(WeaponType)) propertyInfo.SetValue(this, WeaponTypeExtension.ToEnum(value), null);
-		else if (propertyInfo.PropertyType == typeof(ArmorType)) propertyInfo.SetValue(this, ArmorTypeExtension.ToEnum(value), null);
+		else if (propertyInfo.PropertyType == typeof(SelectType)) propertyInfo.SetValue(this, SelectTypeExtension.ToEnum(value), null);
 		// 他の型にも対応させたいときには適当にここに。enumとかもどうにかなりそう。
 	}
 }

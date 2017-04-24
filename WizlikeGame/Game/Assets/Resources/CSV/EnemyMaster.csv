@@ -1,3 +1,6 @@
-id,name,strong,intelligence,mystery,agile,vital,luck,physical_power,physical_defense,magical_power,magical_defense,attribute,lottery_id,ai_id
-1,"test
-",10,10,10,10,10,10,10,10,10,10,10,0,0
+id,name,lv,magic,strong,intelligence,mystery,agile,vital,luck,behavior_ids,parameters
+1,エネミー001,1,10,10,10,10,10,10,10,1,
+2,エネミー002,1,10,10,10,10,10,10,10,1,
+3,エネミー003,1,10,10,10,10,10,10,10,1,
+4,エネミー004,1,10,10,10,10,10,10,10,1,
+5,エネミー005,1,10,10,10,10,10,10,10,1,

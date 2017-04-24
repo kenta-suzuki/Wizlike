@@ -38,13 +38,44 @@ public static class AttributeExtension
 	}
 }
 
-public enum Tribe
+public enum EnemyTribe
 {
 	//種族の設定
+	None,
 	Animal,
 	LivingDead,
 	Spirit,
 	Inorganic,
+}
+
+
+public static class EnemyTribeExtension
+{
+	public static EnemyTribe ToEnum(string val)
+	{
+		return (EnemyTribe)Enum.Parse(typeof(EnemyTribe), val, true);
+	}
+
+	public static String ToString(EnemyTribe attribute)
+	{
+		switch (attribute)
+		{
+			case EnemyTribe.Animal: return "生物";
+			case EnemyTribe.LivingDead: return "不死";
+			case EnemyTribe.Spirit: return "精霊";
+			case EnemyTribe.Inorganic: return "無機物";
+			default: return "";
+		}
+	}
+}
+
+public enum Tribe
+{
+	//種族の設定
+	Human,
+	Elf,
+	Dwarf,
+	Halfling,
 }
 
 
@@ -59,10 +90,10 @@ public static class TribeExtension
 	{
 		switch (attribute)
 		{
-			case Tribe.Animal: return "生物";
-			case Tribe.LivingDead: return "不死";
-			case Tribe.Spirit: return "精霊";
-			case Tribe.Inorganic: return "無機物";
+			case Tribe.Human: return "人間";
+			case Tribe.Elf: return "エルフ";
+			case Tribe.Dwarf: return "ドワーフ";
+			case Tribe.Halfling: return "ハーフリング";
 			default: return "";
 		}
 	}
@@ -116,6 +147,12 @@ public enum WeaponType
 	Gun,
 	Bow,
 	Cane,
+	Shield,
+	Helmet,
+	Hat,
+	LightClothes,
+	HeavyClothes,
+	Accessory
 }
 
 
@@ -139,40 +176,12 @@ public static class WeaponTypeExtension
 			case WeaponType.Gun: return "銃";
 			case WeaponType.Bow: return "弓";
 			case WeaponType.Cane: return "杖";
-			default: return "";
-		}
-	}
-}
-
-public enum ArmorType
-{
-	//防具のタイプ
-	Shield,
-	Helmet,
-	Hat,
-	LightClothes,
-	HeavyClothes,
-	Accessory
-}
-
-
-public static class ArmorTypeExtension
-{
-	public static ArmorType ToEnum(string val)
-	{
-		return (ArmorType)Enum.Parse(typeof(ArmorType), val, true);
-	}
-
-	public static String ToString(ArmorType attribute)
-	{
-		switch (attribute)
-		{
-			case ArmorType.Shield: return "盾";
-			case ArmorType.Helmet: return "兜";
-			case ArmorType.Hat: return "帽子";
-			case ArmorType.LightClothes: return "軽装";
-			case ArmorType.HeavyClothes: return "重装";
-			case ArmorType.Accessory: return "アクセサリー";
+			case WeaponType.Shield: return "盾";
+			case WeaponType.Helmet: return "兜";
+			case WeaponType.Hat: return "帽子";
+			case WeaponType.LightClothes: return "軽装";
+			case WeaponType.HeavyClothes: return "重装";
+			case WeaponType.Accessory: return "アクセサリー";
 			default: return "";
 		}
 	}
@@ -182,6 +191,7 @@ public static class ArmorTypeExtension
 public enum ItemType
 {
 	//アイテムのタイプ
+	// ※ここはどのように分類分けするかちゃんと考える
 	Recovery,
 	Attack,
 	Equipment,
@@ -204,6 +214,59 @@ public static class ItemTypeExtension
 			case ItemType.Attack: return "攻撃";
 			case ItemType.Equipment: return "装備品";
 			case ItemType.Treasure: return "お宝";
+			default: return "";
+		}
+	}
+}
+
+public enum Target
+{
+	None,
+	One,
+	Group,
+	All
+}
+
+public static class TargetExtension
+{
+	public static Target ToEnum(string val)
+	{
+		return (Target)Enum.Parse(typeof(Target), val, true);
+	}
+
+	public static String ToString(Target attribute)
+	{
+		switch (attribute)
+		{
+			case Target.None: return "なし";
+			case Target.One: return "単体";
+			case Target.Group: return "グループ";
+			case Target.All: return "全体";
+			default: return "";
+		}
+	}
+}
+
+public enum SelectType
+{
+	None,
+	Self,
+	Enemy
+}
+
+public static class SelectTypeExtension
+{
+	public static SelectType ToEnum(string val)
+	{
+		return (SelectType)Enum.Parse(typeof(SelectType), val, true);
+	}
+
+	public static String ToString(SelectType attribute)
+	{
+		switch (attribute)
+		{
+			case SelectType.Self: return "自陣";
+			case SelectType.Enemy: return "敵陣";
 			default: return "";
 		}
 	}

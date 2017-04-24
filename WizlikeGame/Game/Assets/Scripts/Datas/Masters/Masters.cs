@@ -11,6 +11,8 @@ namespace Data.Master
 		public EnemyMasterTable Enemy { get; private set; }
 		public SkillMasterTable Skill { get; private set;}
 		public ItemMasterTable Item { get; private set;}
+		public JobMasterTable Job { get; private set;}
+		public IconMasterTable Icon { get; private set;}
 
 		public void Initialize()
 		{
@@ -18,11 +20,15 @@ namespace Data.Master
 			Equipment = new EquipmentMasterTable();
 			Enemy = new EnemyMasterTable();
 			Item = new ItemMasterTable();
+			Job = new JobMasterTable();
+			Icon = new IconMasterTable();
 
 			Character.Load();
 			Equipment.Load();
 			Enemy.Load();
-			//Item.Load();
+			Item.Load();
+			Job.Load();
+			Icon.Load();
 			//Skill.Load();
 
 		}

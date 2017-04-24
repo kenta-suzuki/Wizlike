@@ -1,3 +1,13 @@
-id,name,strong,intelligence,mystery,agile,vital,luck,accuracy,physical_power,physical_defense,magical_power,magical_defense,attribute,regist_tribe_1,regist_tribe_2,regist_tribe_3
-1,A,10,10,10,10,10,10,10,1000,100,100,100,Fire,Animal,LivingDead,Spirit
-2,B,10,10,10,10,10,10,10,1000,100,100,100,Fire,Animal,LivingDead,Spirit
+id,name,not_found_name,type,power,deffense,avoidance,hit,attribute,regist_tribe,description,parameters
+1,剣,剣？,Sword,100,0,0,10,None,Animal,剣,
+2,盾,盾？,Shield,0,50,30,0,None,None,盾,
+3,鎧,鎧？,Body,0,30,10,0,None,None,鎧,
+4,シューズ,シューズ？,Shose,0,0,20,30,None,None,シューズ,
+5,ペンダント,ペンダント？,Accesery,30,30,0,0,None,None,ペンダント,
+6,杖,杖？,Cane,100,0,0,30,None,Animal,杖,
+7,斧,斧？,Axe,150,0,0,0,None,Animal,斧,
+8,槍,槍？,Spear,80,0,10,0,None,Animal,槍,
+9,弓,弓？,Bow,50,0,30,0,None,Animal,弓,
+10,刀,刀？,Katana,180,0,0,0,None,Animal,刀,
+11,ローブ,ローブ？,Body,0,40,60,40,None,None,ローブ,
+12,イヤリング,イヤリング？,Accesery,40,0,0,10,None,None,イヤリング,

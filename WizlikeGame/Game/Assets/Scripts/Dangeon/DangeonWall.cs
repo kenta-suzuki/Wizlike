@@ -38,7 +38,7 @@ public class DangeonWall : MonoBehaviour
 	{
 		if (!IsDoor) return false;
 		if (!IsNeedKey) return true;
-		var hasKey = items.FirstOrDefault(item => item.name == KeyItemName) != null;
+		var hasKey = items.FirstOrDefault(item => item.Name == KeyItemName) != null;
 		return hasKey;
 	}
 }

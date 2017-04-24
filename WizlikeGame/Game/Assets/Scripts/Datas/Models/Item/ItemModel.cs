@@ -9,6 +9,8 @@ namespace Data.Model
 	{
 		const string key = "item";
 		public List<Item> Items;
+		public List<Equipment> Equipments { get { return GameModel.Instance.Models.Equipment.Equipments; } }
+		public List<IItem> AllItems { get { return Items.Cast<IItem>().Intersect(Equipments.Cast<IItem>()).ToList(); }}
 		public bool HasItemData { get { return PlayerPrefs.HasKey(key); } }
 
 		public void Initialize()
@@ -31,9 +33,9 @@ namespace Data.Model
 			JSONObjectExtension.ToStringList(PlayerPrefs.GetString(key)).ForEach(i => Add(Item.Create(i)));
 		}
 
-		public void CreateNewData()
+		public void CreateNewData(bool isAppraisal)
 		{
-			var item = Item.Create(GameModel.Instance.Masters.Item.Datas.First(e => e.id == 1));
+			var item = Item.Create(GameModel.Instance.Masters.Item.Datas.First(e => e.id == 1), isAppraisal);
 			Add(item);
 		}
 
@@ -45,6 +47,23 @@ namespace Data.Model
 		public void Remove(Item item)
 		{
 			Items.Remove(item);
+		}
+
+		public void Remove(int id)
+		{
+			var item = Items.FirstOrDefault(i => i.Id == id);
+			var equipment = Equipments.FirstOrDefault(e => e.Id == id);
+			if (item == null && equipment == null) return;
+
+			if (item != null)
+			{
+				Items.Remove(item);
+
+			}
+			else if (equipment != null)
+			{
+				Equipments.Remove(equipment);
+			}
 		}
 
 		public void Save()

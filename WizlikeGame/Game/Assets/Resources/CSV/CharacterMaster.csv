@@ -1,2 +1,5 @@
-id,strong,intelligence,mystery,agile,vital,luck
-1,10,10,10,10,10,10
+id,tribe,description,strong,intelligence,mystery,agile,vital,luck,magic
+1,人間,人間,10,10,10,10,10,10,10
+2,ドワーフ,ドワーフ,17,7,5,5,17,9,3
+3,エルフ,エルフ,5,20,8,12,5,10,15
+4,ハーフリング,ハーフリング,5,10,12,20,5,18,4

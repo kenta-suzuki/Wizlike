@@ -12,7 +12,8 @@ public class DangeonManager : MonoBehaviour
 	DangeonPlayer Player;
 	[SerializeField]
 	Transform StartPosition;
-	
+
+	//ダンジョンマスターのsetをできるようにする
 	List<DangeonTile> DangeonTiles;
 
 	void Start ()
@@ -27,6 +28,7 @@ public class DangeonManager : MonoBehaviour
 		Player.Initialize();
 	}
 
+	//キー入力はもうちょいストレスないようにしたい
 	void Update ()
 	{
 		if (Input.GetKeyDown(KeyCode.UpArrow))
