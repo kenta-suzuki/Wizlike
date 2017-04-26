@@ -147,11 +147,11 @@ public enum WeaponType
 	Gun,
 	Bow,
 	Cane,
+
 	Shield,
-	Helmet,
-	Hat,
-	LightClothes,
-	HeavyClothes,
+	Head,
+	Body,
+	Shose,
 	Accessory
 }
 
@@ -177,10 +177,9 @@ public static class WeaponTypeExtension
 			case WeaponType.Bow: return "弓";
 			case WeaponType.Cane: return "杖";
 			case WeaponType.Shield: return "盾";
-			case WeaponType.Helmet: return "兜";
-			case WeaponType.Hat: return "帽子";
-			case WeaponType.LightClothes: return "軽装";
-			case WeaponType.HeavyClothes: return "重装";
+			case WeaponType.Head: return "頭";
+			case WeaponType.Body: return "体";
+			case WeaponType.Shose: return "足";
 			case WeaponType.Accessory: return "アクセサリー";
 			default: return "";
 		}

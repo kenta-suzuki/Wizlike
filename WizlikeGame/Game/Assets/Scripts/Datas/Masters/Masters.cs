@@ -13,6 +13,8 @@ namespace Data.Master
 		public ItemMasterTable Item { get; private set;}
 		public JobMasterTable Job { get; private set;}
 		public IconMasterTable Icon { get; private set;}
+		public WaveMasterTable Wave { get; private set; }
+		public BehaviorMasterTable Behavior { get; private set; }
 
 		public void Initialize()
 		{
@@ -22,6 +24,9 @@ namespace Data.Master
 			Item = new ItemMasterTable();
 			Job = new JobMasterTable();
 			Icon = new IconMasterTable();
+			Skill = new SkillMasterTable();
+			Wave = new WaveMasterTable();
+			Behavior = new BehaviorMasterTable();
 
 			Character.Load();
 			Equipment.Load();
@@ -29,7 +34,9 @@ namespace Data.Master
 			Item.Load();
 			Job.Load();
 			Icon.Load();
-			//Skill.Load();
+			Skill.Load();
+			Wave.Load();
+			Behavior.Load();
 
 		}
 	}

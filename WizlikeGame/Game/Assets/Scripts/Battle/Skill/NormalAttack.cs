@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NormalAttack
+namespace Battle
 {
-	public CharacterBase Reciver { get; private set;}
-	public CharacterBase Attacker { get; private set; }
-
-	public NormalAttack(CharacterBase attacker)
+	public class NormalAttack : SkillBase
 	{
-		Attacker = attacker;
-	}
-		
+		public NormalAttack(BattleCharacter attacker)
+		{
+			Attacker = attacker;
+		}
 
-	public void SetReciver(CharacterBase reciver)
-	{
-		Reciver = reciver;
+		public void SetReciver(BattleCharacter reciver)
+		{
+			Recivers.Add(reciver);
+		}
 	}
 }

@@ -9,12 +9,12 @@ public class BattleManager : MonoBehaviour
 
 	public static BattleManager Instance { get; private set;}
 	bool _isEndTurn;
-	List<CharacterBase> _characters;
+	List<BattleCharacter> _characters;
 
 	void Start ()
 	{
 		Instance = this;
-		_characters = new List<CharacterBase>();
+		_characters = new List<BattleCharacter>();
 	}
 
 	void SetCharacters()

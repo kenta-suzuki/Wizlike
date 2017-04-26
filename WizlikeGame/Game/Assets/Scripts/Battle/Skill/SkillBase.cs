@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Battle
 {
-	public abstract class SkillBase
+	public abstract class SkillBase : ISkillPerform
 	{
-		CharacterBase Attacker { get; set; }
-		List<CharacterBase> Recivers { get; set; }
-		Damage Damage { get; set; }
+		protected BattleCharacter Attacker { get; set; }
+		protected List<BattleCharacter> Recivers { get; set; }
+		protected Damage Damage { get; set; }
 
 		//BattleManagerから呼ばれる
 		public void PerformSkill()
@@ -16,13 +16,13 @@ namespace Battle
 			Recivers.ForEach(reciver => ApplyDamage(reciver));
 		}
 
-		protected void ApplyDamage(CharacterBase reciver)
+		protected void ApplyDamage(BattleCharacter reciver)
 		{
 			CreateDamage(reciver);
 			reciver.ApplayDamage(Damage);
 		}
 
-		protected virtual void CreateDamage(CharacterBase reciver)
+		protected virtual void CreateDamage(BattleCharacter reciver)
 		{
 		}
 

@@ -40,7 +40,7 @@ public class MasterTableBase<T> where T : MasterBase, new()
 		for (int i = 0; i < elements.Length; ++i) param.Add(headerElements[i], elements[i]);
 		var master = new T();
 		master.Load(param);
-		//Debug.Log(master.ToString());
+		Debug.Log(master.ToString());
 		masters.Add(master);
 	}
 }
@@ -57,6 +57,8 @@ public class MasterBase
 	private void SetField(string key, string value)
 	{
 		PropertyInfo propertyInfo = this.GetType().GetProperty(key, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+		if (propertyInfo == null) return;
 
 		if (propertyInfo.PropertyType == typeof(int)) propertyInfo.SetValue(this, int.Parse(value), null);
 		else if (propertyInfo.PropertyType == typeof(string)) propertyInfo.SetValue(this, value, null);

@@ -5,7 +5,8 @@ using Battle;
 using Data.Model;
 using Data.Master;
 
-public class CharacterBase 
+public class BattleCharacter
+
 {
 	public long Id { get; private set;}
 	public string Name { get; private set;}
@@ -16,20 +17,15 @@ public class CharacterBase
 	public List<Equipment> Equipments { get; private set;}
 	public List<SkillMaster> Skills { get; private set;}
 
-	public CharacterBase(int id, Character character)
+	public BattleCharacter(int id, Character character)
 	{
 		Id = id;
 		Name = character.Name;
 		Status = new Status(this);
 		Param = new Parameter(character);
-		Health = new Health(GetHP(character));
+		Health = new Health(character.Vital);
 		Equipments = character.Equipments;
 		Skills = character.Skills;
-	}
-
-	int GetHP(Character character)
-	{
-		return 1;
 	}
 
 	public void ApplayDamage(Damage damage)

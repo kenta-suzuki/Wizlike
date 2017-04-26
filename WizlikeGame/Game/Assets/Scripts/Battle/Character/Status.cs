@@ -7,9 +7,9 @@ public class Status
 {
 	public Blocker Blocker { get; private set;}
 	public StatusEffectBase StatusEffect { get; private set;}
-	CharacterBase Owner { get; set;}
+	BattleCharacter Owner { get; set;}
 
-	public Status(CharacterBase owner)
+	public Status(BattleCharacter owner)
 	{
 		Owner = owner;
 		Blocker = new Blocker(){ UnusablePlay = false, UnusableSkill = false };

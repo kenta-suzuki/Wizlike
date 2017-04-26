@@ -13,7 +13,6 @@ namespace Data.Master
 		{
 			return string.Format("[WaveMaster: front_enemy_ids={0}, back_enemy_ids={1}]", front_enemy_ids, back_enemy_ids);
 		}
-
 	}
 
 	public class WaveMasterTable : MasterTableBase<WaveMaster>

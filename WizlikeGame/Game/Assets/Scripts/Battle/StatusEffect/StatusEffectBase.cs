@@ -9,7 +9,7 @@ namespace Battle
 		Damage Damage { get; set; }
 		public StatusEffectType Type { get; private set; }
 
-		public void PerformStatusEffect(CharacterBase reciver)
+		public void PerformStatusEffect(BattleCharacter reciver)
 		{
 			CreateDamage();
 			reciver.ApplayDamage(Damage);
